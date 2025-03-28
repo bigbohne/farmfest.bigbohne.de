@@ -46,7 +46,6 @@ junit.xml
 !/app/
 /lib
 /dist/
-!/.eslintrc.json
 public/build
 build
 !/vite.config.mts
