@@ -1,4 +1,4 @@
-import { typescript } from "projen";
+import { typescript, TextFile } from "projen";
 import { TypeScriptJsxMode, TypeScriptModuleResolution } from "projen/lib/javascript";
 import { TypeScriptProjectOptions } from "projen/lib/typescript";
 
@@ -49,5 +49,24 @@ export class RemixProject extends typescript.TypeScriptProject {
         this.tasks.tryFind('compile')?.reset('npx remix vite:build')
 
         this.gitignore.exclude('public/build', 'build')
+
+        const viteCOnfig = new TextFile(this, 'vite.config.mts');
+        viteCOnfig.addLine(`import { vitePlugin as remix } from "@remix-run/dev";
+import { defineConfig } from "vite";
+import { installGlobals } from "@remix-run/node";
+
+installGlobals();
+
+export default defineConfig({
+  plugins: [remix({
+    future: {
+      v3_fetcherPersist: true,
+      v3_lazyRouteDiscovery: true,
+      v3_relativeSplatPath: true,
+      v3_singleFetch: true,
+      v3_throwAbortReason: true
+    }
+  })],
+});`)
     }
 }

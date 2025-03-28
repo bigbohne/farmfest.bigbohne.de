@@ -49,4 +49,5 @@ junit.xml
 !/.eslintrc.json
 public/build
 build
+!/vite.config.mts
 !/.projenrc.ts
