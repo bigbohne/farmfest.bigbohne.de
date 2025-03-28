@@ -10,7 +10,7 @@
     "lib": [
       "es2019"
     ],
-    "module": "CommonJS",
+    "module": "commonjs",
     "noEmitOnError": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
@@ -23,10 +23,18 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "stripInternal": true,
-    "target": "ES2019"
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "types": [
+      "@remix-run/node",
+      "vite/client"
+    ],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler"
   },
   "include": [
-    "src/**/*.ts",
+    "app/**/*.ts",
     "test/**/*.ts",
     ".projenrc.ts",
     "projenrc/**/*.ts"

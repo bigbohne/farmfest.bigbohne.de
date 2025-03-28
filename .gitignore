@@ -43,8 +43,10 @@ junit.xml
 !/test/
 !/tsconfig.json
 !/tsconfig.dev.json
-!/src/
+!/app/
 /lib
 /dist/
 !/.eslintrc.json
+public/build
+build
 !/.projenrc.ts

@@ -1,11 +1,12 @@
 {
-  "name": "lan.bigbohne.de.projen",
+  "name": "lan.bigbohne.de",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "default": "npx projen default",
+    "dev": "npx projen dev",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
     "package": "npx projen package",
@@ -21,9 +22,12 @@
     "projen": "npx projen"
   },
   "devDependencies": {
+    "@remix-run/dev": "2",
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.14",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "commit-and-tag-version": "^12",
@@ -38,6 +42,14 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
+  "dependencies": {
+    "@remix-run/node": "2",
+    "@remix-run/react": "2",
+    "@remix-run/serve": "2",
+    "isbot": "^4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
   "main": "lib/index.js",
   "license": "Apache-2.0",
   "publishConfig": {
@@ -47,8 +59,8 @@
   "jest": {
     "coverageProvider": "v8",
     "testMatch": [
-      "<rootDir>/@(src|test)/**/*(*.)@(spec|test).ts?(x)",
-      "<rootDir>/@(src|test)/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/@(app|test)/**/*(*.)@(spec|test).ts?(x)",
+      "<rootDir>/@(app|test)/**/__tests__/**/*.ts?(x)",
       "<rootDir>/@(projenrc)/**/*(*.)@(spec|test).ts?(x)",
       "<rootDir>/@(projenrc)/**/__tests__/**/*.ts?(x)"
     ],

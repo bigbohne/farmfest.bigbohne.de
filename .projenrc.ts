@@ -1,12 +1,9 @@
-import { typescript } from 'projen';
-const project = new typescript.TypeScriptProject({
-  defaultReleaseBranch: 'main',
-  name: 'lan.bigbohne.de.projen',
-  projenrcTs: true,
+import { RemixProject } from './projenrc/remix';
 
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+const project = new RemixProject({
+  defaultReleaseBranch: 'main',
+  name: 'lan.bigbohne.de',
+  projenrcTs: true,
 });
+
 project.synth();

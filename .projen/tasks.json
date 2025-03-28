@@ -79,7 +79,7 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "tsc --build"
+          "exec": "npx remix vite:build"
         }
       ]
     },
@@ -89,6 +89,14 @@
       "steps": [
         {
           "exec": "ts-node --project tsconfig.dev.json .projenrc.ts"
+        }
+      ]
+    },
+    "dev": {
+      "name": "dev",
+      "steps": [
+        {
+          "exec": "remix vite:dev"
         }
       ]
     },
@@ -112,7 +120,7 @@
       },
       "steps": [
         {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ src test build-tools projenrc .projenrc.ts",
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern $@ app test build-tools projenrc .projenrc.ts",
           "receiveArgs": true
         }
       ]
@@ -157,7 +165,12 @@
     },
     "pre-compile": {
       "name": "pre-compile",
-      "description": "Prepare the project for compilation"
+      "description": "Prepare the project for compilation",
+      "steps": [
+        {
+          "exec": "rm -rf ./build"
+        }
+      ]
     },
     "release": {
       "name": "release",
@@ -230,13 +243,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,ts-node,typescript"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@types/jest,@types/node,@types/react,@types/react-dom,eslint-import-resolver-typescript,eslint-plugin-import,jest,projen,ts-jest,ts-node,typescript,isbot"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @stylistic/eslint-plugin @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen ts-jest ts-node typescript"
+          "exec": "yarn upgrade @remix-run/dev @stylistic/eslint-plugin @types/jest @types/node @types/react @types/react-dom @typescript-eslint/eslint-plugin @typescript-eslint/parser commit-and-tag-version constructs eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit projen ts-jest ts-node typescript @remix-run/node @remix-run/react @remix-run/serve isbot react-dom react"
         },
         {
           "exec": "npx projen"
