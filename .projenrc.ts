@@ -1,6 +1,6 @@
-import { RemixProject } from './projenrc/remix';
+import { WranglerProject } from './projenrc/wrangler';
 
-const project = new RemixProject({
+const project = new WranglerProject({
   defaultReleaseBranch: 'main',
   name: 'farmfest.bigbohne.de',
   projenrcTs: true,
@@ -9,10 +9,5 @@ const project = new RemixProject({
   buildWorkflow: false,
   release: false
 });
-
-project.addDeps('@remix-run/cloudflare')
-project.addDevDeps('wrangler')
-
-project.addTask('deploy').exec("npx wrangler deploy")
 
 project.synth();
