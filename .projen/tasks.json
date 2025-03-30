@@ -74,6 +74,14 @@
         }
       ]
     },
+    "deploy": {
+      "name": "deploy",
+      "steps": [
+        {
+          "exec": "npx wrangler deploy"
+        }
+      ]
+    },
     "dev": {
       "name": "dev",
       "steps": [

@@ -52,6 +52,14 @@
       "type": "build"
     },
     {
+      "name": "wrangler",
+      "type": "build"
+    },
+    {
+      "name": "@remix-run/cloudflare",
+      "type": "runtime"
+    },
+    {
       "name": "@remix-run/node",
       "version": "2",
       "type": "runtime"

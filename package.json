@@ -1,10 +1,11 @@
 {
-  "name": "lan.bigbohne.de",
+  "name": "farmfest.bigbohne.de",
   "scripts": {
     "build": "npx projen build",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "default": "npx projen default",
+    "deploy": "npx projen deploy",
     "dev": "npx projen dev",
     "eject": "npx projen eject",
     "package": "npx projen package",
@@ -27,9 +28,11 @@
     "projen": "^0.91.18",
     "ts-jest": "^29.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^4.6.0"
   },
   "dependencies": {
+    "@remix-run/cloudflare": "^2.16.3",
     "@remix-run/node": "2",
     "@remix-run/react": "2",
     "@remix-run/serve": "2",
