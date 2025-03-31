@@ -8,7 +8,7 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": [
-      "es2019"
+      "es2021"
     ],
     "module": "commonjs",
     "noEmitOnError": false,
@@ -23,18 +23,19 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "stripInternal": true,
-    "target": "ES2022",
+    "target": "es2021",
+    "moduleResolution": "node",
     "jsx": "react-jsx",
     "noEmit": true,
     "types": [
       "@remix-run/node",
-      "vite/client"
+      "vite/client",
+      "node"
     ],
-    "skipLibCheck": true,
-    "moduleResolution": "bundler"
+    "baseUrl": "."
   },
   "include": [
-    "app/**/*.ts",
+    "src/**/*.ts",
     "test/**/*.ts",
     ".projenrc.ts",
     "projenrc/**/*.ts"

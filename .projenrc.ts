@@ -10,4 +10,6 @@ const project = new WranglerProject({
   release: false
 });
 
+project.addDeps('primeflex', 'primeicons')
+
 project.synth();

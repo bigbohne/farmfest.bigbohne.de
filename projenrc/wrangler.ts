@@ -8,6 +8,9 @@ export class WranglerProject extends RemixProject {
 
         this.addDeps('@remix-run/cloudflare')
         this.addDevDeps('wrangler')
-        this.addTask('deploy').exec("npx wrangler deploy")
+        
+        const deployTask = this.addTask('deploy')
+        deployTask.spawn(this.tasks.tryFind("build")!)
+        deployTask.exec("npx wrangler deploy")
     }
 }

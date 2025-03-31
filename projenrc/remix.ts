@@ -12,23 +12,23 @@ export class RemixProject extends typescript.TypeScriptProject {
         ...props?.tsconfig,
         compilerOptions: {
           ...props?.tsconfig?.compilerOptions,
-          module: 'es6',
+          target: "es2021",
+          module: "es2021",
+          lib: ["es2021"],
+          moduleResolution: TypeScriptModuleResolution.NODE,
           jsx: TypeScriptJsxMode.REACT_JSX,
           noEmit: true,
-          types: ['@remix-run/node', 'vite/client'],
-          skipLibCheck: true,
-          moduleResolution: TypeScriptModuleResolution.BUNDLER,
-          target: 'ES2022',
+          types: ['@remix-run/node', 'vite/client', 'node'],
+          baseUrl: '.',
         },
       },
       tsconfigDev: {
         ...props?.tsconfigDev,
         compilerOptions: {
           ...props?.tsconfigDev?.compilerOptions,
-          module: 'commonjs',
+          module: 'commonjs'
         },
       },
-      srcdir: 'app',
       sampleCode: false,
       eslint: false,
     });
@@ -42,7 +42,9 @@ export class RemixProject extends typescript.TypeScriptProject {
 
     this.addDevDeps('@remix-run/dev@2',
       '@types/react',
-      '@types/react-dom');
+      '@types/react-dom',
+      "@types/node",
+      "terser");
 
     this.addTask('dev', {
       exec: 'remix vite:dev',
@@ -71,6 +73,9 @@ export default defineConfig({
       v3_throwAbortReason: true
     }
   })],
+  build: {
+    minify: 'terser'
+  }
 });`);
   }
 }

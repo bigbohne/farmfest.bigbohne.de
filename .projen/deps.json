@@ -40,6 +40,10 @@
       "type": "build"
     },
     {
+      "name": "terser",
+      "type": "build"
+    },
+    {
       "name": "ts-jest",
       "type": "build"
     },
@@ -76,6 +80,14 @@
     },
     {
       "name": "isbot",
+      "type": "runtime"
+    },
+    {
+      "name": "primeflex",
+      "type": "runtime"
+    },
+    {
+      "name": "primeicons",
       "type": "runtime"
     },
     {

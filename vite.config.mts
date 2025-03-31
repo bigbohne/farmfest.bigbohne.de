@@ -14,4 +14,7 @@ export default defineConfig({
       v3_throwAbortReason: true
     }
   })],
+  build: {
+    minify: 'terser'
+  }
 });
